@@ -26,7 +26,7 @@ trait HttpDifferenceProxy extends DifferenceProxy {
   override type Srv = HttpService
 
   override def serviceFactory(serverset: String, label: String) =
-    HttpService(requestHostHeaderFilter(serverset) andThen
+    HttpService(
       Http.client
         .withMaxResponseSize(settings.maxResponseSize)
         .withMaxHeaderSize(settings.maxHeaderSize)
